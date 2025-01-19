@@ -1,0 +1,24 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Fitness_Center.Models.Member
+
+@{
+    ViewData["Title"] = "DeleteMember";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<h2>Delete Member</h2>
+
+<div class="alert alert-warning">
+    Are you sure you want to delete the member <strong>@Model.FullName</strong>?
+</div>
+
+<form asp-action="DeleteMember" method="post">
+    <input type="hidden" asp-for="MemberId" />
+    <button type="submit" class="btn btn-danger">Delete</button>
+    <a asp-action="ManageMembers" class="btn btn-secondary">Cancel</a>
+</form>
+

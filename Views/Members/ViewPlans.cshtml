@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Fitness_Center.Models.Membershipplan>
+@{
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+
+    ViewBag.Title = "View Membership Plans";
+}
+
+<h1>Membership Plans</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plan Name</th>
+            <th>Duration (Months)</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var plan in Model)
+
+        {
+            <tr>
+                <td>@plan.PlanName</td>
+                <td>@plan.DurationMonths</td>
+                <td>@plan.Price.ToString("C")</td>
+                <td>@plan.Description</td>
+                <td>
+                    <form asp-action="Subscribe" method="post">
+                        <input type="hidden" name="planId" value="@plan.PlanId" />
+                        <button type="submit" class="btn btn-secondary">Subscribe</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<Fitness_Center.Models.Membershipplan>
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+    ViewBag.Title = "Membership Plans";
+}
+
+<section class="plans-section">
+    <div class="container">
+        <h2 class="text-center">Our Membership Plans</h2>
+        <br /><br>
+        <div class="row">
+            @foreach (var plan in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="plan-box">
+                        <h3>@plan.PlanName</h3>
+                        <p><strong>Duration:</strong> @plan.DurationMonths months</p>
+                        <p><strong>Price:</strong> @plan.Price.ToString("C")</p>
+                        <p>@plan.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

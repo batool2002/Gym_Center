@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Fitness_Center.Models.Member
+
+@{
+    ViewData["Title"] = "CreateMember";
+}
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<h2>Create Member</h2>
+
+<form asp-action="CreateMember" method="post">
+
+    <div class="form-group">
+        <label asp-for="UserId" class="control-label"></label>
+        <select asp-for="UserId" class="form-control" asp-items="ViewBag.Users"></select>
+    </div>
+    <div class="form-group">
+        <label>Full Name</label>
+        <input asp-for="FullName" class="form-control" />
+        <span asp-validation-for="FullName" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Date of Birth</label>
+        <input asp-for="DateOfBirth" type="date" class="form-control" />
+        <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Contact Number</label>
+        <input asp-for="ContactNumber" class="form-control" />
+        <span asp-validation-for="ContactNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label>Address</label>
+        <textarea asp-for="Address" class="form-control"></textarea>
+        <span asp-validation-for="Address" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="SubscriptionId" class="control-label"></label>
+        <select asp-for="SubscriptionId" class="form-control" asp-items="ViewBag.Subscription"></select>
+    </div>
+@*     <div class="form-group">
+        <label asp-for="ProfilePicture" class="control-label"></label>
+        <input asp-for="ProfilePicture" class="form-control" />
+        <span asp-validation-for="ProfilePicture" class="text-danger"></span>
+    </div> *@
+
+    <button type="submit" class="btn btn-primary">Save</button>
+    <a asp-action="ManageMembers" class="btn btn-secondary">Cancel</a>
+</form>
+

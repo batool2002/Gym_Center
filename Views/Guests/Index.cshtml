@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Fitness_Center.Models.Membershipplan>
+
+@* 
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+
+} *@
+@{
+   
+     Layout = "~/Views/Shared/_Layout2.cshtml";
+
+  
+
+    ViewBag.Title = "Welcome to Fitness Center";
+}
+<link rel="stylesheet" href="/css/Stylee.css">
+
+<section class="hero-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                
+               
+             
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="plans-section mt-5">
+    <div class="container">
+        <h2 class="text-center">Our Membership Plans</h2>
+        <br /><br />
+        <div class="row">
+            @foreach (var plan in ViewBag.Plans as IEnumerable<Fitness_Center.Models.Membershipplan>)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="plan-box text-center">
+                        <h3>@plan.PlanName</h3>
+                        <p><strong>Duration:</strong> @plan.DurationMonths months</p>
+                        <p><strong>Price:</strong> @plan.Price.ToString("C")</p>
+                        <p>@plan.Description</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<section class="trainers-section mt-5">
+    <div class="container">
+        <h2 class="text-center">Meet Our Trainers</h2>
+        <div class="row">
+            @foreach (var trainer in ViewBag.Trainers as IEnumerable<Fitness_Center.Models.Trainer>)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="trainer-box text-center">
+                        <img src="@Url.Content("~/Images/" + trainer.ProfilePicture)"
+                             asp-append-version="true"
+                             class="rounded-circle"
+                             width="75" height="75" />
+                        <h4>@trainer.FullName</h4>
+                        <p><strong>Specialization:</strong> @trainer.Specialization</p>
+                        <p><strong>Experience:</strong> @trainer.ExperienceYears years</p>
+                        <p><strong>Contact:</strong> @trainer.ContactNumber</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

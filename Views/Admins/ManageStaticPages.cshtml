@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Fitness_Center.Models.Staticpage>
+@{
+    ViewData["Title"] = "Manage Static Pages";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+<h1>Manage Static Pages</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th> @Html.DisplayNameFor(model => model.PageName) </th>
+            <th> @Html.DisplayNameFor(model => model.UpdatedAt)</th>
+            <th>Actions</th> 
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var page in Model)
+        {
+            <tr>
+                <td> @Html.DisplayFor(modelpage => page.PageName)</td>
+                <td> @Html.DisplayFor(modelpage => page.UpdatedAt)</td>
+
+              @*   <td>
+                    <a asp-action="EditStaticPage" asp-route-id="page.PageId" class="btn btn-primary">Edit</a>
+                </td> *@
+         
+@*                 <td>page.UpdatedAt?.ToString("g")</td>
+                <td>
+                    <a asp-action="EditStaticPage" asp-route-id="page.PageId" class="btn btn-primary">Edit</a>
+                </td> *@
+            </tr>
+        }
+    </tbody>
+</table>

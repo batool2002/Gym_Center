@@ -1,0 +1,42 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<Fitness_Center.Models.Member>
+@{
+    Layout = "~/Views/Shared/_Layout5.cshtml";
+    ViewBag.Title = "Trainer Dashboard";
+}
+
+<h1>Trainer Dashboard</h1>
+<p>Below is the list of members assigned to you:</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Date of Birth</th>
+            <th>Contact Number</th>
+            <th>Address</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var traier in Model)
+        {
+            <tr>
+                <td>@traier.FullName</td>
+                <td>@traier.DateOfBirth?.ToString("yyyy-MM-dd")</td>
+                <td>@traier.ContactNumber</td>
+                <td>@traier.Address</td>
+                <td>
+                    <img src="@Url.Content("~/Images/" + traier.ProfilePicture)"
+                         asp-append-version="true"
+                         class="rounded-circle"
+                         width="75" height="75" />
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="@Url.Action("CreateWorkoutPlan")" class="btn btn-secondary">Create Workout Plan</a>

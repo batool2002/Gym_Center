@@ -1,0 +1,35 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+@model IEnumerable<Fitness_Center.Models.Workout>
+@{
+    ViewBag.Title = "View Workouts";
+}
+
+<h1>My Workouts</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Plan Name</th>
+            <th>Description</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Trainer</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var workout in Model)
+
+        {
+            <tr>
+                <td>@workout.PlanName</td>
+                <td>@workout.Description</td>
+                <td>@workout.StartDate?.ToString("yyyy-MM-dd")</td>
+                <td>@workout.EndDate?.ToString("yyyy-MM-dd")</td>
+                <td>@workout.Trainer.FullName</td>
+            </tr>
+        }
+    </tbody>
+</table>

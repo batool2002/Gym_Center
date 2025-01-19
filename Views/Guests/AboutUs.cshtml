@@ -1,0 +1,14 @@
+﻿ @model Fitness_Center.Models.Staticpage
+@{
+    ViewBag.Title = "About Us";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<h1>About Us</h1>
+<div>@Html.Raw(Model.Content)</div>
+
+<a href="@Url.Action("Index", "Guests")" class="btn btn-secondary">Back to Home</a>
+ 

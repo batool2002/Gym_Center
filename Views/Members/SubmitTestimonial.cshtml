@@ -1,0 +1,20 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+@model Fitness_Center.Models.Testimonial
+@{
+    ViewBag.Title = "Submit Testimonial";
+}
+
+<h1>Submit Testimonial</h1>
+
+<form asp-action="SubmitTestimonial" method="post">
+    <div class="form-group">
+        <label for="Content">Your Feedback</label>
+        <textarea id="Content" name="Content" class="form-control">@Model.Content</textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a href="@Url.Action("Index")" class="btn btn-secondary">Back to Dashboard</a>
+</form>

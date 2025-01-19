@@ -1,0 +1,32 @@
+﻿@model Fitness_Center.Models.Member
+@{
+    
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+
+    ViewBag.Title = "Member Dashboard";
+}
+
+<h1>Welcome, @Model.FullName</h1>
+
+<h2>Your Subscription</h2>
+@if (Model.Subscription != null)
+
+{
+    <p>Plan: @Model.Subscription.Plan.PlanName</p>
+    <p>Start Date: @Model.Subscription.StartDate.ToString("yyyy-MM-dd")</p>
+    <p>End Date: @Model.Subscription.EndDate.ToString("yyyy-MM-dd")</p>
+    <p>Status: @Model.Subscription.PaymentStatus</p>
+    @if (Model.Subscription.PaymentStatus == "Unpaid")
+
+    {
+        <a href="@Url.Action("Pay", "Payments", new { subscriptionId = Model.Subscription.SubscriptionId })" class="btn btn-danger">Pay Now</a>
+    }
+}
+
+else
+
+{
+    <p>You do not have an active subscription.</p>
+    <a href="@Url.Action("ViewPlans")" class="btn btn-secondary" >View Plans</a>
+}
+

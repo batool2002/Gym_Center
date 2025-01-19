@@ -1,0 +1,19 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+@model Fitness_Center.Models.Member
+@{
+    ViewBag.Title = "View Profile";
+}
+
+<h1>My Profile</h1>
+
+<p><strong>Full Name:</strong> @Model.ProfilePicture</p>
+<p><strong>Full Name:</strong> @Model.FullName</p>
+<p><strong>Date of Birth:</strong> @Model.DateOfBirth?.ToString("yyyy-MM-dd")</p>
+<p><strong>Contact Number:</strong> @Model.ContactNumber</p>
+<p><strong>Address:</strong> @Model.Address</p>
+<p><strong>Email:</strong> @Model.User.Email</p>
+
+<a href="@Url.Action("EditProfile")" class="btn btn-secondary">Edit Profile</a>

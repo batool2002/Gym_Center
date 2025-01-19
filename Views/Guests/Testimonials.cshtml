@@ -1,0 +1,23 @@
+﻿ @model IEnumerable<Fitness_Center.Models.Testimonial>
+@{
+    ViewBag.Title = "Testimonials";
+}
+
+
+@{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+<h1>What Our Members Say</h1>
+
+@foreach (var testimonial in Model)
+
+{
+    <div class="testimonial">
+        <p><strong>@testimonial.Member.FullName says:</strong></p>
+        <blockquote>@testimonial.Content</blockquote>
+        <hr />
+    </div>
+}
+
+<a href="@Url.Action("Index", "Guests")" class="btn btn-secondary">Back to Home</a>
+ 

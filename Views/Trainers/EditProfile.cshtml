@@ -1,0 +1,45 @@
+﻿@model Fitness_Center.Models.Trainer
+
+@{
+    ViewData["Title"] = "Edit Profile";
+}
+
+<h1>Edit Profile</h1>
+
+<form asp-action="EditProfile" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="TrainerId" value="@Model.TrainerId" />
+
+    <div class="form-group">
+        <label for="FullName">Full Name</label>
+        <input type="text" id="FullName" name="FullName" value="@Model.FullName" class="form-control" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Specialization">Specialization</label>
+        <input type="text" id="Specialization" name="Specialization" value="@Model.Specialization" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="ExperienceYears">Years of Experience</label>
+        <input type="number" id="ExperienceYears" name="ExperienceYears" value="@Model.ExperienceYears" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label for="ContactNumber">Contact Number</label>
+        <input type="text" id="ContactNumber" name="ContactNumber" value="@Model.ContactNumber" class="form-control" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ProfileFile" class="control-label"></label>
+        <input asp-for="ProfileFile" class="form-control" />
+        <span asp-validation-for="ProfileFile" class="text-danger"></span>
+    </div>
+
+    @* <div class="form-group">
+        <label for="ProfileFile">Profile Picture (URL)</label>
+        <input type="text" id="ProfileFile" name="ProfileFile" value="@Model.ProfilePicture" class="form-control" />
+    </div> *@
+
+    <button type="submit" class="btn btn-success">Save Changes</button>
+    <a href="@Url.Action("Index", "Trainers")" class="btn btn-secondary">Cancel</a>
+</form>

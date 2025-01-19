@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Fitness_Center.Models.Trainer>
+
+@{
+    ViewData["Title"] = "Trainers";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Trainers</h1>
+
+    <!-- Create New Button -->
+    <div class="mb-4 text-end">
+        <a asp-action="CreateTrainer" class="btn btn-secondary">
+            <i class="bi bi-person-plus-fill"></i> Create New Trainer
+        </a>
+    </div>
+
+    <!-- Trainers Table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-dark">
+                <tr>
+                    <th>Full Name</th>
+                    <th>Specialization</th>
+                    <th>Experience (Years)</th>
+                    <th>Contact Number</th>
+                    <th>Profile Picture</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.FullName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Specialization)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ExperienceYears)</td>
+                        <td>@Html.DisplayFor(modelItem => item.ContactNumber)</td>
+                        <td>
+                            <img src="@Url.Content("~/Images/" + item.ProfilePicture)"
+                                 asp-append-version="true"
+                                 class="rounded-circle"
+                                 width="75" height="75" />
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.User.Username)</td>
+                        <td>
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a asp-action="EditTrainer" asp-route-id="@item.TrainerId" class="btn btn-secondary">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                                <a asp-action="DeleteTrainer" asp-route-id="@item.TrainerId" class="btn btn-secondary">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,49 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<Fitness_Center.Models.Testimonial>
+
+@{
+    ViewData["Title"] = "Manage Testimonials";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+}
+
+<h1>Manage Testimonials</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Member Name</th>
+            <th>Content</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Member.FullName</td>
+                <td>@item.Content</td>
+                <td>@item.Status</td>
+                <td>
+                    @if (item.Status == "Pending")
+                    {
+                        <a asp-action="ApproveTestimonial" asp-route-id="@item.TestimonialId" class="btn btn-success">Approve</a>
+ 
+                        <a asp-action = "RejectTestimonial" asp-route-id = "@item.TestimonialId" class="btn btn-danger">Reject</a>
+    }
+                    else
+                    {
+                <span>@item.Status</span>
+                    }
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+

@@ -1,0 +1,60 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout4.cshtml";
+}
+
+ @model Fitness_Center.Models.Subscription
+
+@{
+    ViewData["Title"] = "Subscribe to a Plan";
+}
+
+<h1>Subscribe to a Plan</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <form asp-action="Subscribe" method="post">
+
+                <input type="hidden" asp-for="MemberId" value="@ViewBag.MemberId" />
+                <div class="form-group">
+                    <label for="PlanId">Select a Plan</label>
+                    <select id="PlanId" name="PlanId" class="form-control" asp-for="PlanId" asp-items="ViewBag.Plans">
+                        <option value="">-- Select a Plan --</option>
+                    </select>
+                    <span asp-validation-for="PlanId" class="text-danger"></span>
+                </div>
+
+                
+
+                <div class="form-group">
+                    <label for="StartDate">Start Date</label>
+                    <input type="date" id="StartDate" name="StartDate" class="form-control" asp-for="StartDate" />
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="EndDate">End Date</label>
+                    <input type="date" id="EndDate" name="EndDate" class="form-control" asp-for="EndDate" />
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="PaymentStatus">Payment Status</label>
+                    <select id="PaymentStatus" name="PaymentStatus" class="form-control" asp-for="PaymentStatus">
+                        <option value="Paid">Paid</option>
+                        <option value="Unpaid">Unpaid</option>
+                    </select>
+                    <span asp-validation-for="PaymentStatus" class="text-danger"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Subscribe</button>
+                <a asp-action="ViewPlans" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+ 

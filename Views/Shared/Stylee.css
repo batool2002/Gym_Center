@@ -1,0 +1,127 @@
+﻿/*.plans-section {
+    background-color: #f7f7f7;*/ /* Light background for contrast */
+padding: 50px 0;
+}
+
+.plan-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .plan-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .plan-box h3 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 15px;
+    }
+
+    .plan-box p {
+        color: #666;
+        margin-bottom: 10px;
+        font-size: 0.9rem;
+    }
+
+        .plan-box p strong {
+            color: #333;
+        }*/
+
+
+/*  Trainers */
+/* Trainers Section */
+/*.trainers-section {
+    background-color: #fff;*/ /* White background */
+/*padding: 50px 0;
+}
+
+.trainer-box {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .trainer-box:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .trainer-box img {
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 3px solid #ddd;
+    }
+
+    .trainer-box h4 {
+        font-size: 1.5rem;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .trainer-box p {
+        color: #666;
+        margin-bottom: 8px;
+        font-size: 0.9rem;
+    }
+
+        .trainer-box p strong {
+            color: #333;
+        }*/
+
+/* Section Titles */
+/*.plans-section h2, .trainers-section h2 {
+    font-size: 2rem;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-weight: 600;
+    text-transform: uppercase;
+}*/
+
+/* Button Adjustments    */
+/*.primary-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+    .primary-btn:hover {
+        background-color: #0056b3;
+        text-decoration: none;
+    }
+
+    .primary-btn.second-btn {
+        background-color: #6c757d;
+        color: #fff;
+    }
+
+        .primary-btn.second-btn:hover {
+            background-color: #5a6268;
+        }*/
+/*      Update Section Backgrounds    */
+
+/*.plans-section {
+    background: linear-gradient(to bottom, #e3f2fd, #f7f7f7);
+}
+
+.trainers-section {
+    background: linear-gradient(to bottom, #fff, #f9f9f9);
+}
+
